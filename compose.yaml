@@ -1,4 +1,16 @@
 services:
+  web:
+    build: ../assinaradar-web
+    ports:
+      - "127.0.0.1:8000:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
   analytics:
     build: ../assinaradar-analytics
     ports:
@@ -14,7 +26,7 @@ services:
       DATABASE_PATH: /app/data/assinaradar.db
       ANALYTICS_URL: http://analytics:8001
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8002:8000"
     volumes:
       - assinaradar_data:/app/data
     depends_on:

@@ -13,11 +13,11 @@ O usuário interage pela interface visual em http://localhost:8000/. O Swagger p
 - Python 3.12 para execução local.
 - Docker com Compose para execução em contêineres.
 - Acesso à internet para instalar dependências e consultar moedas estrangeiras.
-- A pasta/repositório `assinaradar-analytics` ao lado deste para usar o Compose.
+- As pastas/repositórios `assinaradar-analytics` e `assinaradar-web` ao lado deste para usar o Compose.
 
 ## Execução com Docker
 
-Estrutura esperada após clonar os dois repositórios:
+Estrutura esperada após clonar os três repositórios:
 
 ```text
 projetos/
@@ -25,6 +25,8 @@ projetos/
     compose.yaml
     Dockerfile
   assinaradar-analytics/
+    Dockerfile
+  assinaradar-web/
     Dockerfile
 ```
 
@@ -141,20 +143,23 @@ app/services.py   Integrações HTTP e conversão
 tests/            Testes de comportamento
 docs/             Arquitetura, demonstração e entrega
 Dockerfile        Imagem do componente
-compose.yaml      Execução dos dois serviços
+compose.yaml      Execução dos três serviços
 ```
 
 É um MVP local de usuário único, sem autenticação. A publicação em ambiente multiusuário exigiria autenticação e isolamento dos registros.
 
-## Interface visual
+## Interface visual independente
 
-A página inicial é servida pela própria API principal, em `app/static`. Não requer Node.js, dependências externas de interface nem outro servidor. O navegador usa GET, POST, PUT e DELETE na mesma origem.
+A interface foi extraída para https://github.com/Yuri-N3/assinaradar-web e possui README e Dockerfile próprios. O Compose desta pasta orquestra os três componentes. O endereço http://localhost:8000/ permanece o acesso principal; Nginx encaminha as requisições à API sem redirecionar o usuário.
 
-- Painel com custo mensal equivalente, projeção anual e quantidade de serviços ativos.
-- Distribuição dos gastos por categoria e referências de câmbio com data.
-- Cadastro e edição com formulário, busca por nome/categoria, filtro por situação e ordenação.
-- Simulação de economia ao selecionar assinaturas ativas; não altera os registros.
-- Exclusão com confirmação e mensagens de sucesso ou erro.
-- Layout adaptável, navegação por teclado e estados vazios para começar sem dados fictícios.
+## Obter todos os componentes
 
-Para experimentar, clique em **Nova assinatura**, preencha o formulário e salve. Depois marque a caixa à esquerda do serviço para simular o cancelamento. Use **Editar** para alterar os dados ou marcar uma assinatura como cancelada.
+```powershell
+git clone https://github.com/Yuri-N3/assinaradar-api.git
+git clone https://github.com/Yuri-N3/assinaradar-analytics.git
+git clone https://github.com/Yuri-N3/assinaradar-web.git
+cd assinaradar-api
+docker compose up --build -d --wait
+```
+
+Em Docker, o backend é acessível diretamente em http://localhost:8002/docs e pelo proxy em http://localhost:8000/docs. A execução Python local continua usando a porta 8000 conforme os comandos acima; não a execute simultaneamente com o front-end Docker na mesma porta.

@@ -28,3 +28,7 @@ Aplicação local, de usuário único e sem autenticação. Cancelamentos não s
 ## Interface visual — 25/09/2026
 
 Verificados no navegador: carregamento do painel, cadastro pelo formulário, atualização dos totais, edição de valor e simulação de economia. Os dados de teste foram removidos após a verificação.
+
+## Auditoria e separação dos componentes — 25/09/2026
+
+25 testes automatizados aprovados (16 da principal e 9 da secundária). Três contêineres saudáveis. Verificação HTTP pelo proxy Nginx aprovada: Swagger, CRUD, quatro análises, cotação real e persistência após reinício. Projeção visual de seis meses verificada no navegador. Os registros pré-existentes foram preservados; somente registros criados pela verificação foram excluídos. Front-end publicado em https://github.com/Yuri-N3/assinaradar-web.
