@@ -35,7 +35,7 @@ Na raiz deste repositório:
 ```powershell
 docker compose up --build -d
 docker compose ps
-docker compose logs api analytics
+docker compose logs api analytics web
 ```
 
 Abra http://localhost:8000/ para usar o painel visual. A documentação continua em http://localhost:8000/docs e http://localhost:8001/docs. O volume `assinaradar_data` preserva o banco entre reinicializações. Para encerrar sem apagar dados:
@@ -118,7 +118,7 @@ Serviço: **Frankfurter**, https://frankfurter.dev/.
 - BRL/BRL usa paridade 1 local, sem acesso externo.
 - A data da taxa é devolvida ao usuário. São cotações de referência, não preços em tempo real nem o valor efetivamente cobrado pelo cartão.
 
-Somente o par de moedas é enviado ao serviço externo. Não são enviados nomes ou valores das assinaturas. Uma moeda é consultada apenas uma vez por análise. O sistema não guarda cache de câmbio; timeouts, falhas HTTP e respostas inválidas resultam em 502, sem substituir a cotação por um valor inventado.
+Somente o par de moedas é enviado ao serviço externo. Não são enviados nomes ou valores das assinaturas. Uma moeda é consultada apenas uma vez por análise. O sistema não guarda cache de câmbio; timeouts, falhas HTTP e respostas inválidas resultam em 502, sem usar uma taxa alternativa.
 
 ## Regras da análise
 
@@ -150,7 +150,7 @@ compose.yaml      Execução dos três serviços
 
 ## Interface visual independente
 
-A interface foi extraída para https://github.com/Yuri-N3/assinaradar-web e possui README e Dockerfile próprios. O Compose desta pasta orquestra os três componentes. O endereço http://localhost:8000/ permanece o acesso principal; Nginx encaminha as requisições à API sem redirecionar o usuário.
+A interface está em https://github.com/Yuri-N3/assinaradar-web e possui README e Dockerfile próprios. O Compose desta pasta orquestra os três componentes. O painel é acessível em http://localhost:8000/; Nginx encaminha as requisições à API sem redirecionar o usuário.
 
 ## Obter todos os componentes
 
