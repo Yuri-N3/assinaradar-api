@@ -10,12 +10,12 @@ Referência: enunciado `mvp back end.pdf`, seis páginas. Arquitetura escolhida:
 | GET, POST, PUT/PATCH, DELETE | CRUD de `/assinaturas` | Implementado |
 | README da principal | Instalação, rotas, regras, configuração e estrutura | Preparado |
 | Imagem do fluxograma | `docs/arquitetura.png` | Preparado |
-| Dockerfile principal | Dockerfile na raiz, usuário sem privilégios | Preparado; executar no Docker |
-| Compose na raiz da principal | `compose.yaml` | Preparado; executar no Docker |
+| Dockerfile principal | Dockerfile na raiz, usuário sem privilégios | Validado em Docker |
+| Compose na raiz da principal | `compose.yaml` | Validado em Docker |
 | Domínio e funcionalidades adicionais | Assinaturas digitais, filtros, paginação, projeção e economia | Implementado |
 | Secundária com quatro rotas e Swagger | POST `/resumo`, `/categorias`, `/projecao`, `/economia` | Implementado |
 | README secundária | Instalação local, Docker, contrato e testes | Preparado |
-| Dockerfile secundária | Dockerfile na raiz do componente | Preparado; executar no Docker |
+| Dockerfile secundária | Dockerfile na raiz do componente | Validado em Docker |
 | API externa pública gratuita | Frankfurter v2 | Implementado |
 | Documentar cadastro, licença e rotas externas | Seção API externa no README principal | Preparado |
 | Consumir e tratar resposta sem redirecionar | `app/services.py` | Implementado |

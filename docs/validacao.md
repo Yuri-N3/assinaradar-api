@@ -14,10 +14,10 @@ Os testes automatizados de integração usam respostas controladas para serem re
 
 O ambiente emitiu um aviso de descontinuação no cliente HTTP de testes do Starlette. Não houve falha; o aviso se refere à futura migração do cliente de testes, não a uma operação do AssinaRadar.
 
-## Pendente no ambiente de entrega
+## Validação Docker em 25/09/2026
 
-- Construir e executar as imagens com Docker. O executável Docker não estava disponível no ambiente de desenvolvimento; não se afirma que os contêineres foram testados.
-- Conferir `docker compose ps`, interagir com as rotas nos dois Swaggers e verificar a persistência após reiniciar os contêineres.
+- Imagens construídas com Docker Desktop 29.8.0 e iniciadas com `docker compose up --build -d --wait`; ambos os serviços ficaram saudáveis.
+- Verificados por HTTP: Swagger/OpenAPI, CRUD, quatro análises integradas, quatro rotas da secundária e cotação externa real. Persistência confirmada após `docker compose restart api`. Registros de teste removidos ao final.
 - Publicação concluída: https://github.com/Yuri-N3/assinaradar-api e https://github.com/Yuri-N3/assinaradar-analytics.
 - Gravar, revisar e publicar o vídeo de até seis minutos.
 
