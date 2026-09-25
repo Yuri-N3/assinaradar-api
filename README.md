@@ -131,7 +131,7 @@ Somente assinaturas ativas participam dos cálculos. O custo anual é dividido p
 .venv\Scripts\python -m pytest -q
 ```
 
-Os testes usam banco temporário e respostas externas controladas para verificar regras e falhas de comunicação. Não dependem de internet. Consulte [validação](docs/validacao.md) para distinguir testes automatizados de execução em Docker.
+Os testes usam banco temporário e respostas externas controladas para verificar regras e falhas de comunicação. Não dependem de internet.
 
 ## Organização
 
@@ -141,7 +141,7 @@ app/models.py     Contratos e validação
 app/database.py   Persistência SQLite parametrizada
 app/services.py   Integrações HTTP e conversão
 tests/            Testes de comportamento
-docs/             Arquitetura, demonstração e entrega
+docs/             Fluxograma da arquitetura
 Dockerfile        Imagem do componente
 compose.yaml      Execução dos três serviços
 ```
