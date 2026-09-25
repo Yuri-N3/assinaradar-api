@@ -19,7 +19,7 @@ Referência: enunciado `mvp back end.pdf`, seis páginas. Arquitetura escolhida:
 | API externa pública gratuita | Frankfurter v2 | Implementado |
 | Documentar cadastro, licença e rotas externas | Seção API externa no README principal | Preparado |
 | Consumir e tratar resposta sem redirecionar | `app/services.py` | Implementado |
-| Repositórios públicos separados | Pastas independentes para publicação | Pendente de publicação |
+| Repositórios públicos separados | Pastas independentes para publicação | Publicado |
 | Organização e convenções | Módulos Python, testes e documentação separados | Implementado |
 | Vídeo até seis minutos | `docs/roteiro-video.md` | Roteiro pronto; gravação pendente |
 
@@ -29,7 +29,7 @@ O recorte de assinaturas diferencia o produto de um painel genérico de ativos f
 
 Crie dois repositórios públicos vazios, `assinaradar-api` e `assinaradar-analytics`. Envie o conteúdo de cada pasta para seu respectivo repositório, mantendo Dockerfile e README na raiz. Não envie a pasta de entrega como um único repositório.
 
-Exemplo para a API principal, após criar o repositório na sua conta e substituir `SEU_USUARIO`:
+Exemplo para a API principal, após criar o repositório na sua conta e substituir `Yuri-N3`:
 
 ```powershell
 cd assinaradar-api
@@ -37,11 +37,11 @@ git init
 git add .
 git commit -m "Implementa controle de assinaturas"
 git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/assinaradar-api.git
+git remote add origin https://github.com/Yuri-N3/assinaradar-api.git
 git push -u origin main
 ```
 
-Repita na outra pasta com a URL do repositório `assinaradar-analytics`. Os comandos são instruções para a etapa de publicação; os repositórios remotos não foram criados por este pacote.
+Repita na outra pasta com a URL do repositório `assinaradar-analytics`. Repositórios publicados em 25/09/2026: https://github.com/Yuri-N3/assinaradar-api e https://github.com/Yuri-N3/assinaradar-analytics.
 
 ## Mensagem de entrega
 
@@ -50,7 +50,7 @@ Substitua todos os campos antes de enviar:
 ```text
 Olá, seguem os dados do MVP AssinaRadar:
 Vídeo: [URL completa do vídeo]
-Componente principal: https://github.com/SEU_USUARIO/assinaradar-api
-Componente secundário: https://github.com/SEU_USUARIO/assinaradar-analytics
+Componente principal: https://github.com/Yuri-N3/assinaradar-api
+Componente secundário: https://github.com/Yuri-N3/assinaradar-analytics
 API externa: https://frankfurter.dev/
 ```

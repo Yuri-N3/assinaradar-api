@@ -18,7 +18,7 @@ O ambiente emitiu um aviso de descontinuação no cliente HTTP de testes do Star
 
 - Construir e executar as imagens com Docker. O executável Docker não estava disponível no ambiente de desenvolvimento; não se afirma que os contêineres foram testados.
 - Conferir `docker compose ps`, interagir com as rotas nos dois Swaggers e verificar a persistência após reiniciar os contêineres.
-- Publicar os componentes em dois repositórios públicos separados.
+- Publicação concluída: https://github.com/Yuri-N3/assinaradar-api e https://github.com/Yuri-N3/assinaradar-analytics.
 - Gravar, revisar e publicar o vídeo de até seis minutos.
 
 ## Limites do MVP
