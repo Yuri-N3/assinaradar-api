@@ -1,9 +1,12 @@
 import os
+from pathlib import Path
 from contextlib import asynccontextmanager
 from typing import Literal
 
 import httpx
 from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from .database import Database
 from .models import Currency, Quote, Subscription, SubscriptionInput, SubscriptionPage
@@ -72,6 +75,13 @@ def create_app(database_path=None, transport=None):
         if tipo == 'economia' and not set(excluir_ids).issubset({item['id'] for item in items}):
             raise HTTPException(422, 'Informe apenas IDs de assinaturas ativas existentes.')
         return await analyze(app.state.client, analytics_url, exchange_url, items, tipo, meses, excluir_ids)
+
+    static_dir = Path(__file__).parent / 'static'
+    app.mount('/static', StaticFiles(directory=static_dir), name='static')
+
+    @app.get('/', include_in_schema=False)
+    def interface():
+        return FileResponse(static_dir / 'index.html')
 
     return app
 

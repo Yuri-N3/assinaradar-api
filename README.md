@@ -6,7 +6,7 @@ API REST em Python para controlar assinaturas de serviços digitais. Persiste os
 
 ![Fluxograma da arquitetura](docs/arquitetura.png)
 
-O usuário interage pelo Swagger. A API principal mantém os dados, consulta a Frankfurter por HTTPS e chama a API secundária por HTTP/JSON. A secundária calcula resultados sem acessar o banco nem a API externa. Não existe redirecionamento para outro aplicativo.
+O usuário interage pela interface visual em http://localhost:8000/. O Swagger permanece disponível em /docs. A API principal mantém os dados, consulta a Frankfurter por HTTPS e chama a API secundária por HTTP/JSON. A secundária calcula resultados sem acessar o banco nem a API externa. Não existe redirecionamento para outro aplicativo.
 
 ## Pré-requisitos
 
@@ -36,7 +36,7 @@ docker compose ps
 docker compose logs api analytics
 ```
 
-Abra http://localhost:8000/docs e http://localhost:8001/docs. O volume `assinaradar_data` preserva o banco entre reinicializações. Para encerrar sem apagar dados:
+Abra http://localhost:8000/ para usar o painel visual. A documentação continua em http://localhost:8000/docs e http://localhost:8001/docs. O volume `assinaradar_data` preserva o banco entre reinicializações. Para encerrar sem apagar dados:
 
 ```powershell
 docker compose down
@@ -145,3 +145,16 @@ compose.yaml      Execução dos dois serviços
 ```
 
 É um MVP local de usuário único, sem autenticação. A publicação em ambiente multiusuário exigiria autenticação e isolamento dos registros.
+
+## Interface visual
+
+A página inicial é servida pela própria API principal, em `app/static`. Não requer Node.js, dependências externas de interface nem outro servidor. O navegador usa GET, POST, PUT e DELETE na mesma origem.
+
+- Painel com custo mensal equivalente, projeção anual e quantidade de serviços ativos.
+- Distribuição dos gastos por categoria e referências de câmbio com data.
+- Cadastro e edição com formulário, busca por nome/categoria, filtro por situação e ordenação.
+- Simulação de economia ao selecionar assinaturas ativas; não altera os registros.
+- Exclusão com confirmação e mensagens de sucesso ou erro.
+- Layout adaptável, navegação por teclado e estados vazios para começar sem dados fictícios.
+
+Para experimentar, clique em **Nova assinatura**, preencha o formulário e salve. Depois marque a caixa à esquerda do serviço para simular o cancelamento. Use **Editar** para alterar os dados ou marcar uma assinatura como cancelada.

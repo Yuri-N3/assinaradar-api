@@ -24,3 +24,7 @@ O ambiente emitiu um aviso de descontinuação no cliente HTTP de testes do Star
 ## Limites do MVP
 
 Aplicação local, de usuário único e sem autenticação. Cancelamentos não são enviados a fornecedores. Não há pagamentos reais, atualização automática da próxima cobrança, previsão de impostos ou câmbio de cartão. A simulação usa os preços cadastrados e as cotações de referência disponíveis no momento da consulta.
+
+## Interface visual — 25/09/2026
+
+Verificados no navegador: carregamento do painel, cadastro pelo formulário, atualização dos totais, edição de valor e simulação de economia. Os dados de teste foram removidos após a verificação.
